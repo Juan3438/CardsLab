@@ -4,10 +4,15 @@ public class Deck {
     private ArrayList<Card> unDealt;
     private ArrayList<Card> Dealt;
 
-    public Deck(String[] ranks,String[] suits,int[] values){                  // Constructor(takes in 3 arrays)(repeats to the num of suits + has all given values and ranks)
+    public Deck(String[] ranks,String[] suits,int[] values){        // Constructor(takes in 3 arrays)(repeats to the num of suits + has all given values and ranks)
+
+        unDealt = new ArrayList<Card>();
+        Dealt = new ArrayList<Card>();
+
         for(int i = 0; i< suits.length;i++){
             for(int j =0; j<ranks.length;j++){
-                
+                Card card = new Card(suits[1],ranks[j],values[j]);
+                unDealt.add(card);
             }
         }
     }
@@ -18,7 +23,14 @@ public class Deck {
         return unDealt.size();
     }
     public void shuffle(){
-
+        while(Dealt.size() >= 1){
+            Card temp = Dealt.get(0);
+            unDealt.add(temp);
+            Dealt.remove(0);
+        }
+        for(int k = 51; k>0;k--){
+            int rand = (int)(Math.random()*k);
+        }
     }
 
 }
