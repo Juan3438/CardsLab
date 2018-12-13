@@ -28,9 +28,17 @@ public class Deck {
             unDealt.add(temp);
             Dealt.remove(0);
         }
+        ArrayList<Card> temp = unDealt;
         for(int k = 51; k>0;k--){
             int rand = (int)(Math.random()*k);
+            temp.add(unDealt.get(rand));
+            unDealt.remove(rand);
+
         }
     }
-
+    public Card nextCard(){
+        Card temp = unDealt.get(0);
+        unDealt.remove(0);
+        return temp;
+    }
 }

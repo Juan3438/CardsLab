@@ -22,6 +22,7 @@ public class Card {
         return (PointValue == othercard.getPointValue());
     }
     public String toString(){
-        return Suit;
+        String str = "[" + Rank + ", " + Suit + ", " + PointValue + "]";
+        return str;
     }
 }
